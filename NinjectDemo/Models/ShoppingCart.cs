@@ -7,10 +7,10 @@ namespace NinjectDemo.Models
 {
     public class ShoppingCart
     {
-        private LinqValueCalculator _calc;
+        private IValueCalculator _calc;
         public IEnumerable<Product> Products { get; set; }
 
-        public ShoppingCart(LinqValueCalculator calculator)
+        public ShoppingCart(IValueCalculator calculator)
         {
             _calc = calculator;
         }

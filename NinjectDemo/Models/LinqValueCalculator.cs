@@ -5,11 +5,18 @@ using System.Web;
 
 namespace NinjectDemo.Models
 {
-    public class LinqValueCalculator
+    public class LinqValueCalculator : IValueCalculator
     {
+        private IDiscountHelper _discounter;
+
+        public LinqValueCalculator(IDiscountHelper discounter)
+        {
+            _discounter = discounter;
+        }
+
         public decimal ValueProducts(IEnumerable<Product> products)
         {
-            return products.Sum(p => p.Price);
+            return _discounter.ApplyDiscount(products.Sum(p => p.Price));
         }
     }
 }

@@ -20,7 +20,8 @@ namespace NinjectDemo.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var calc = new LinqValueCalculator();
+            IDiscountHelper discounter = new DefaultDiscountHelper();
+            IValueCalculator calc = new LinqValueCalculator(discounter);
             var cart = new ShoppingCart(calc) { Products = products };
             decimal totalValue = cart.CalculateProductTotal();
 
