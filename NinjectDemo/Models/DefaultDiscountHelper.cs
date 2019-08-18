@@ -7,9 +7,9 @@ namespace NinjectDemo.Models
 {
     public class DefaultDiscountHelper : IDiscountHelper
     {
-        public decimal ApplyDiscount(decimal totalParam)
+        public decimal ApplyDiscount(decimal price)
         {
-            return (totalParam - (10m / 100m * totalParam));
+            return (price - (10m / 100m * price));
         }
     }
 }

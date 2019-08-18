@@ -8,9 +8,12 @@ namespace NinjectDemo.Models
 {
     public class MinimumDiscountHelper : IDiscountHelper
     {
-        public decimal ApplyDiscount(decimal totalParam)
+        public decimal ApplyDiscount(decimal price)
         {
-            return (totalParam - (10m / 100m * totalParam));
+            if (price < 0) throw new ArgumentOutOfRangeException();
+            if (price > 100) return price * 0.9M;
+            if (price > 10 && price <= 100) return price - 5;
+            return price;
         }
     }
 }

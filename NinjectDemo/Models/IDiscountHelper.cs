@@ -7,6 +7,6 @@ namespace NinjectDemo.Models
 {
     public interface IDiscountHelper
     {
-        decimal ApplyDiscount(decimal totalParam);
+        decimal ApplyDiscount(decimal price);
     }
 }
