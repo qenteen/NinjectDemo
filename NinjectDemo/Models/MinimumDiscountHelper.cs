@@ -12,7 +12,7 @@ namespace NinjectDemo.Models
         {
             if (price < 0) throw new ArgumentOutOfRangeException();
             if (price > 100) return price * 0.9M;
-            if (price > 10 && price <= 100) return price - 5;
+            if (price >= 10 && price <= 100) return price - 5;
             return price;
         }
     }
